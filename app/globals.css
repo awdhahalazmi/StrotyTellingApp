@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #050714;
+  color: white;
+  font-family: 'Lato', 'Georgia', serif;
+  overflow-x: hidden;
+}
+
+/* ── Keyframes ── */
+@keyframes twinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.25; transform: scale(0.7); }
+}
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.9; }
+  50%       { opacity: 0.15; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-18px); }
+}
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-12px) rotate(2deg); }
+  66%       { transform: translateY(-6px) rotate(-1deg); }
+}
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(245,200,66,0.35); }
+  50%       { box-shadow: 0 0 45px rgba(245,200,66,0.85), 0 0 90px rgba(245,200,66,0.4); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+@keyframes cloudDrift {
+  0%, 100% { transform: translateX(0px); }
+  50%       { transform: translateX(28px); }
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; filter: blur(40px); }
+  50%       { opacity: 1;   filter: blur(20px); }
+}
+
+/* ── Utility classes ── */
+.star         { animation: twinkle var(--duration, 2s) infinite var(--delay, 0s); }
+.star-twinkle { animation: starTwinkle var(--duration, 2s) ease-in-out infinite; }
+.float        { animation: float 3.5s ease-in-out infinite; }
+.float-slow   { animation: floatSlow 6s ease-in-out infinite; }
+.glow-gold    { animation: glow 2.2s ease-in-out infinite; }
+.spin-slow    { animation: spin-slow 12s linear infinite; }
+
+/* Glassmorphism dark card */
+.glass-dark {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Gold text glow */
+.text-glow-gold {
+  text-shadow: 0 0 16px rgba(245, 200, 66, 0.6), 0 0 40px rgba(245, 200, 66, 0.3);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: #050714; }
+::-webkit-scrollbar-thumb { background: rgba(245,200,66,0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(245,200,66,0.5); }
+
+/* Select option fix for dark bg */
+option { background: #0d0a2e; color: white; }
